@@ -209,7 +209,7 @@ export class VerifyitDashboardPage implements OnInit {
   async presentLoading(data) {
     const loading = await this.loading.create({
       message: data,
-      duration: 6000,
+      duration: 3000,
     });
     await loading.present();
   }
@@ -504,7 +504,7 @@ export class VerifyitDashboardPage implements OnInit {
   }
   bdata
   async gettag(tagId) {
-    this.presentLoading("");
+    
     window.localStorage.setItem("tagId", tagId);
     let locationUrl = window.location.href;
 
@@ -517,11 +517,11 @@ export class VerifyitDashboardPage implements OnInit {
 
 
       
+
       this.apiSvc.getBrandDetail(this.res.product_id).subscribe((data) => {
-        
+
         this.bdata = data
         // window.localStorage.setItem('brand_id','0')
-        // this.loading.dismiss();
         this.utilservice.brand_id = this.bdata.data.id
 
         console.log('======================dasboard brand==================')
@@ -544,16 +544,15 @@ export class VerifyitDashboardPage implements OnInit {
         window.localStorage.setItem('brand_text', this.bdata.data.tagline)
 
 
-        // this.loading.dismiss();
+       
 
         if (this.hasBparams) {
-        // this.loading.dismiss();
-
+// this.loading.dismiss()
           this.router.navigate(["/verifyit-product-catalog"], {
             queryParams: { product_id: window.localStorage.getItem('product_id') },
           });
         } else {
-          // this.loading.dismiss();
+          // this.loading.dismiss()
 
           this.router.navigateByUrl("/verifyit-product");
 
@@ -604,6 +603,7 @@ export class VerifyitDashboardPage implements OnInit {
     return obj;
     this.router.navigateByUrl("/verifyit-product");
   }
+
 
 
   scanIOS() {
@@ -665,7 +665,8 @@ export class VerifyitDashboardPage implements OnInit {
         (data: any) => {
           window.localStorage.setItem("token", data.data.token);
 
-
+          // this.showProductPage();
+          // this.hardwareDiagnostic()
 
 
 
@@ -674,7 +675,7 @@ export class VerifyitDashboardPage implements OnInit {
 
         },
         async (err) => {
-          // await this.loading.dismiss();
+          
           this.alertService.presentAlert("", "Something went wrong.");
         }
       );
@@ -688,7 +689,7 @@ export class VerifyitDashboardPage implements OnInit {
 
 
   showProductPage() {
-    this.presentLoading('')
+    // this.presentLoading('')
     this.route.queryParams.subscribe(params => {
 
 
@@ -762,6 +763,43 @@ export class VerifyitDashboardPage implements OnInit {
       this.gettag(this.url_parameter.params);
       // this.router.navigateByUrl('/verifyit-product')
     }
+    // this.gettag('4516') 4925
+    //  for multiple image ,scrach card 4516
+    // for vedio link      4573
+    //for customer review  4517
+    // 4534 for reward
+    //4507  //for scratchcard
+    // 5013 first care product
+    // this.gettag('5020')
+
+
+
+
+    // ask for location
+
+    // const alert = await this.alertCtrl.create({
+    //   header: "Error",
+    //   message: 'err',
+    //   buttons: ["OK"],
+    // });
+
+    // await alert.present();
+    // }
+
+
+    // this.askLocation()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     this.utilservice.LoadPage.subscribe((data) => {
@@ -822,6 +860,7 @@ export class VerifyitDashboardPage implements OnInit {
       this.showLocationAlert()
     } else if (window.localStorage.getItem('locationenabled') == '1') {
       if (a == '1') {
+        this.presentLoading('')
 
         this.showProductPage();
       } else {
@@ -855,6 +894,7 @@ export class VerifyitDashboardPage implements OnInit {
             if (notification_enabled == '0' || notification_enabled == undefined) {
 
               this.showNotificationAlert()
+              
             } else {
               this.showProductPage()
             }
@@ -899,7 +939,7 @@ export class VerifyitDashboardPage implements OnInit {
     },
   };
   askLocation() {
-    this.presentLoading("");
+    
 
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -920,17 +960,20 @@ export class VerifyitDashboardPage implements OnInit {
           console.log("==================================>")
           console.log("==================================>")
 
-          this.loading.dismiss();
+          
           window.localStorage.setItem('locationenabled', '1')
+          this.showNotificationAlert()
+
           this.trackingevents('LOCATION_DATA')
         })
 
         .catch((error) => {
-          this.loading.dismiss();
+          
           // this.loading.dismiss();
           window.localStorage.setItem('locationenabled', '1')
 
           // this.showProductPage();
+          this.showNotificationAlert()
           this.trackingevents('LOCATION_DATA')
           console.log("Error getting location", error);
         });
@@ -942,7 +985,11 @@ export class VerifyitDashboardPage implements OnInit {
 
 
   trackingevents(otype) {
-    debugger
+    // debugger
+    // if (otype == 'NOTIFICATION_DATA') {
+    //   this.presentLoading('')
+    // }
+    // debugger
 
     const _this = this;
 
@@ -956,7 +1003,7 @@ export class VerifyitDashboardPage implements OnInit {
 
     _this.trackingData.meta_data.mobile_number = '';
     _this.trackingData.meta_data.js_fcm = this.fcmData.js_fcm
-    // this.presentLoading("");
+    
     this.apiSvc.reviewTracking(_this.trackingData).subscribe(
       //**charu Start */
       (res: any) => {
@@ -973,7 +1020,7 @@ export class VerifyitDashboardPage implements OnInit {
           let notification_enabled = window.localStorage.getItem("notification_enabled");
           if (notification_enabled == '0' || notification_enabled == undefined) {
             // this.loading.dismiss()
-            this.showNotificationAlert()
+            // this.showNotificationAlert()
           } else {
             // this.loading.dismiss()
             this.showProductPage();
@@ -1059,7 +1106,7 @@ export class VerifyitDashboardPage implements OnInit {
         //location
       },
       (err) => {
-        this.loading.dismiss();
+        // this.loading.dismiss();
         this.presentToast(["QR code scan went wrong.."]);
 
         // this.alertService.presentAlert("", "call record scan went wrong");
@@ -1106,7 +1153,7 @@ export class VerifyitDashboardPage implements OnInit {
 
 
   firebasePermission() {
-    // this.presentLoading("");
+    
     // window.localStorage.setItem('notification_enabled','0')
 
 
@@ -1123,6 +1170,9 @@ export class VerifyitDashboardPage implements OnInit {
         // this.generateToken(this.fcmData);
         window.localStorage.setItem('notification_enabled', '1')
         // this.loading.dismiss()
+       
+          this.presentLoading('')
+        
         this.trackingevents('NOTIFICATION_DATA');
 
       },
@@ -1130,6 +1180,8 @@ export class VerifyitDashboardPage implements OnInit {
 
         // this.generateToken(this.fcmData);
         // this.loading.dismiss()
+        this.presentLoading('')
+
         this.trackingevents('NOTIFICATION_DATA')
 
 
@@ -1142,7 +1194,7 @@ export class VerifyitDashboardPage implements OnInit {
   }
   ionViewDidLeave() {
     // this.navCtrl.pop();
-    this.loading.dismiss();
+    this.loading.dismiss()
   }
 
 }
