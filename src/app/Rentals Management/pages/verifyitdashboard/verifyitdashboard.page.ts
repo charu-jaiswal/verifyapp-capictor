@@ -136,7 +136,7 @@ export class VerifyitDashboardPage implements OnInit {
 
       if(params.p == "1"){
         window.localStorage.setItem('locationenabled','1');
-        this.popuptext = "want to hear from us? or Allow notification?"
+        this.popuptext = "Want to hear from us!"
         window.localStorage.setItem('hasCatalog','0')
         // this.hasCatalog="0"
 

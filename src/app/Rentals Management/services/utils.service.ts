@@ -47,6 +47,7 @@ export class Utils {
     celebration:EventEmitter<boolean> = new EventEmitter();
     signUp: EventEmitter<boolean> = new EventEmitter();
     getQues: EventEmitter<boolean> = new EventEmitter();
+    showCatalog: EventEmitter<boolean> = new EventEmitter();
     warrantyInformation
   constructor(
     private http: HttpClient,
@@ -109,5 +110,10 @@ export class Utils {
 
   openQuizModal(){
     this.getQues.next(true)
+  }
+
+  showCatalogpage(){
+    this.showCatalog.next(true)
+    
   }
 }

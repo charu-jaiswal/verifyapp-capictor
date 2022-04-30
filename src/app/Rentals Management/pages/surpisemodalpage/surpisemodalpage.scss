@@ -142,6 +142,7 @@ color: rgb(0, 0, 0);
 }
 
 h6 {
+  font-size: 18px;
 color: rgb(0, 0, 0);
 // font-family: "Open Sans Condensed", sans-serif;
 }
@@ -195,6 +196,7 @@ ion-button {
   display: inline-flex;
   box-shadow:  8px 6px 18px rgba(0, 0, 0, 0.36), -6px -4px 18px rgba(255, 255, 255, 0.16);
   margin: auto;
+  margin-top: 1vh;
   ion-button {
 
     --background: black !important;

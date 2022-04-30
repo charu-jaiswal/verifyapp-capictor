@@ -51,7 +51,7 @@ export class VerifyitProductCatalogPage {
   ngOnInit() {
 
 
-    this.hasCatalog=window.localStorage.getItem('hasCatalog')
+   
 
     if (!(window.localStorage.getItem('flow7secondTimeuser'))) {
       window.localStorage.setItem('flow7secondTimeuser', '0')
@@ -77,6 +77,17 @@ export class VerifyitProductCatalogPage {
 
 
       this.getQuestions();
+
+
+    });
+
+  this.utilservice.showCatalog.subscribe((data) => {
+      debugger
+
+      // this.brand_name = window.localStorage.getItem('brand')
+
+
+      this.openCatalog();
 
 
     });
@@ -372,7 +383,7 @@ export class VerifyitProductCatalogPage {
       this.loginService.isProductInfo = true;
       this.utilservice.isProductInfo = true;
       window.localStorage.setItem("hasquizModal", "1");
-      this.getQuestions()
+      this.checkWinnerStatus()
     } else {
       // this.loginService.isProductInfo = true;
       // this.utilservice.isProductInfo = true;
@@ -585,6 +596,18 @@ export class VerifyitProductCatalogPage {
     }
     );
     return await modal.present();
+  }
+
+  ionViewWillEnter(){
+   
+  }
+
+  openCatalog(){
+    if(window.localStorage.getItem('name')){
+      window.localStorage.setItem('hasCatalog','1')
+
+    }
+    this.hasCatalog=window.localStorage.getItem('hasCatalog')
   }
 
 
