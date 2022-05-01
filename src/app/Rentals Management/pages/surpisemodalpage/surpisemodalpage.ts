@@ -154,6 +154,10 @@ export class surpiseModalPage implements OnInit {
       
       // this.router.navigate(['/login'], { queryParams: { reg: 'regon' }})
       // this.openInappBrowser()
+      // window.localStorage.setItem('hasCatalog','1')
+
+      this.utils.showCatalogpage()
+
       this.navCtrl.pop();
 
       await this.modalController.dismiss();

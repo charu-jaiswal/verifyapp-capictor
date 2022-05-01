@@ -303,18 +303,18 @@
 
 
         <ion-row class="width-80-percent">
-          <ion-col *ngIf="hidenshow">
+          <!-- <ion-col *ngIf="hidenshow">
             <h6 class="paytm-msg">
               Awesome,<br>
              <p class="paytm-msg-para">
              {{googleLoginText}}
              </p> 
             </h6>
-          </ion-col>
+          </ion-col> -->
 
-          <ion-col *ngIf="!hidenshow">
+          <ion-col>
             <h6 class="paytm-msg">
-              <img src="https://nowverityit-img.s3.ap-south-1.amazonaws.com/demo/1647953450.webp" alt=""><br>
+              <img src={{brandImage}} alt=""><br>
              <p class="paytm-msg-para">
              {{googleLoginText}}
              </p> 
@@ -326,7 +326,7 @@
           <ion-row class="width-80-percent text-left ">
               <ion-col>
                 <ion-item lines="none">
-                  <ion-label position="stacked" class="font-20 margin-left-22 margin-bottom-10">Enter Your name<small>*</small></ion-label>
+                  <ion-label position="stacked" class="font-20 margin-left-22 margin-bottom-10">Enter your name<small>*</small></ion-label>
                   <ion-input type="text" placeholder="name" [(ngModel)]="loginData.name">
                   </ion-input>
                 </ion-item>
@@ -378,7 +378,7 @@
             <ion-col>
               <ion-item lines="none">
                 <ion-label position="stacked" class="font-20 margin-left-22 margin-bottom-10">Mobile<small>*</small></ion-label>
-                <ion-input type="text" placeholder="Enter your Paytm number" [(ngModel)]="loginData.mobile">
+                <ion-input type="text" placeholder="Enter your mobile number" [(ngModel)]="loginData.mobile">
                 </ion-input>
               </ion-item>
             </ion-col>

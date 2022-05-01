@@ -91,6 +91,7 @@ export class VerifyitDashboardPage implements OnInit {
   writingTag: boolean = false;
   isWriting: boolean = false;
   writtenInput = "";
+  hasCatalog
   ndefMsg: any;
   scanData: {};
   triggerLocation
@@ -99,6 +100,7 @@ export class VerifyitDashboardPage implements OnInit {
   canvasElement: any;
   canvasContext: any;
   selectedTheme: any;
+  popuptext:any;
   constructor(
     private iab: InAppBrowser,
     private nfc: NFC,
@@ -122,12 +124,29 @@ export class VerifyitDashboardPage implements OnInit {
     private apiSvc: NailaService
   ) {
 
+
+    
+
     this.route.queryParams.subscribe(params => {
 
       this.generateTokenParams = params
       console.log("=======================")
       console.log((params))
       console.log("=======================")
+
+      if(params.p == "1"){
+        window.localStorage.setItem('locationenabled','1');
+        this.popuptext = "Want to hear from us!"
+        window.localStorage.setItem('hasCatalog','0')
+        // this.hasCatalog="0"
+
+      }else{
+        this.popuptext = 'Increase your chances of winning the lucky prize by allowing notification.'
+        window.localStorage.setItem('hasCatalog','1')
+
+        // this.hasCatalog="1"
+
+      }
 
     });
 
@@ -504,6 +523,7 @@ export class VerifyitDashboardPage implements OnInit {
         this.bdata = data
         // window.localStorage.setItem('brand_id','0')
         this.utilservice.brand_id = this.bdata.data.id
+
         console.log('======================dasboard brand==================')
         console.log('======================dasboard brand==================')
 
@@ -520,6 +540,9 @@ export class VerifyitDashboardPage implements OnInit {
         console.log('======================dasboard brand==================')
 
         window.localStorage.setItem('brand_id', this.bdata.data.id)
+        window.localStorage.setItem('brand_image', this.bdata.data.brand_image)
+        window.localStorage.setItem('brand_text', this.bdata.data.tagline)
+
 
        
 
@@ -1098,7 +1121,7 @@ export class VerifyitDashboardPage implements OnInit {
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
       // header: 'Confirm!',
-      message: 'Increase your chances of winning the lucky prize by allowing notification.',
+      message: this.popuptext,
       buttons: [
         {
           text: 'No',
