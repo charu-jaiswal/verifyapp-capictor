@@ -143,6 +143,7 @@ export class MainAppSetting {
                 API = 'http://localhost:3020';
             }
         }
+        
 
         console.log('-------MAIN APP', API);
         return API;
