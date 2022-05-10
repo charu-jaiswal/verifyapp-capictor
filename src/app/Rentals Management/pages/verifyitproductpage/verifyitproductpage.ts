@@ -185,6 +185,7 @@ export class Verifyitproductpage {
   ndefMsg: any;
   hasLogin;
   subscription3
+  subscription5
   subscriptions: Array<Subscription> = new Array<Subscription>();
   initialProdImage = '';
   constructor(
@@ -260,6 +261,15 @@ export class Verifyitproductpage {
       this.socialShare();
     });
 
+    if(window.localStorage.getItem('scan_flow') == "4"){
+
+      this.subscription5 = this.utilservice.getQues.subscribe((data) => {
+        this.getQuestions();
+      });
+    }
+
+
+
     this.subscription2 = this.utilservice.submit_upi.subscribe((data) => {
       this.SubmitUPI();
     });
@@ -319,7 +329,7 @@ export class Verifyitproductpage {
 
   ionViewDidLeave() {
     // this.navCtrl.pop();
-    this.loadingCtrl.dismiss()
+    // this.loadingCtrl.dismiss()
   }
 
   // async ionViewDidEnter() {
@@ -382,6 +392,7 @@ export class Verifyitproductpage {
   }
 
   showCatalog(id) {
+    debugger
     let shareData = {
       user_id: window.localStorage.getItem("userid"),
       tag_id: window.localStorage.getItem("tagId"),
@@ -393,6 +404,8 @@ export class Verifyitproductpage {
       (res: any) => {
         if (res) {
           this.utilservice.productId = id;
+          window.localStorage.setItem("manualcatalog",'1')
+          
           this.router.navigateByUrl("/verifyit-product-catalog");
         }
       },
@@ -1516,7 +1529,7 @@ export class Verifyitproductpage {
       this.hasComingsoon = this.utilservice.callgettagresult.meta_data.coming_soon
       this.websiteLink=this.utilservice.callgettagresult.meta_data.Website
 
-      if((this.callgettagresult as any)?.meta_data?.images.length > 1){
+      if((this.callgettagresult as any)?.meta_data?.images?.length > 1){
         this.initialProdImage = (this.callgettagresult as any).meta_data.images[0]
       }
       // if(this.callgettagresult.brand == "RRC"){
@@ -1568,5 +1581,9 @@ export class Verifyitproductpage {
       this._addListenersToPlayerPlugin();
 
     })
+  }
+
+  showCustomerReview(){
+    this.router.navigateByUrl('/customer-review')
   }
 }

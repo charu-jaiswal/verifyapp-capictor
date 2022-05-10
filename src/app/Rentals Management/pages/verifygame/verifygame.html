@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-row>
+    <ion-col>
+      
+   
+      <div class="wheel">
+         <img style="  height: 42px;
+         position: absolute;
+         display: flex;
+         justify-content: center;     z-index: 2;    margin-top: -10px;" src="assets/wheelpoint.png" alt="">
+         <img style="    position: absolute;
+         height: 338px;
+         margin-top: -20px; z-index: 1;" src="assets/circle.png" alt="">
+         
+          <canvas #myCanvas width="auto" height="300"></canvas>
+
+          <img style="    position: absolute;
+          height: 125px;
+          margin-top: 285px;" src="assets/base.png" alt="">
+      </div>
+    </ion-col>
+
+  </ion-row>
+
+  
+  <!-- <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+</ion-content>
+
+<ion-content>
+
+
+  <ion-row>
+    <ion-col class="spin">
+  
+  
+      <ion-button (click)="spin()" >spin the wheel</ion-button>     
+    </ion-col>
+  
+  </ion-row>
+</ion-content>

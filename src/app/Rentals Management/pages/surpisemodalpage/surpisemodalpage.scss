@@ -234,10 +234,10 @@ ion-button {
   width: 80%;
   display: inline-flex;
   box-shadow: 8px 6px 18px rgba(0, 0, 0, 0.36), -6px -4px 18px rgba(255, 255, 255, 0.16);
-  position: fixed;
-  // top: 0;
+  position: absolute;
+  bottom: -15vh;  // top: 0;
   // bottom: 180;
-  bottom: 10vh;
+  // bottom: 10vh;
   left: 0;
   right: 0;
   margin: auto;
@@ -287,13 +287,28 @@ ion-input{
 }
 
 .lose-card{
+
   width: 326px;
-  height: 400px;
-    background: #F4F4F4;
-    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.07), -4px -4px 13px #FFFFFF, 6px 6px 36px rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
-    border-radius: 12px;
-    margin-top: 1vh;
+  background: #F4F4F4;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.07), -4px -4px 13px #FFFFFF, 6px 6px 36px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+
+
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+
+  // width: 326px;
+  // height: 400px;
+  //   background: #F4F4F4;
+  //   box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.07), -4px -4px 13px #FFFFFF, 6px 6px 36px rgba(0, 0, 0, 0.06);
+  //   border-radius: 12px;
+  //   border-radius: 12px;
+  //   margin-top: 1vh;
 
 }
 
@@ -303,6 +318,10 @@ box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.6), inset 4px 4px 10px rg
 border-radius: 12px;
 height: 246px;
     margin: 61px 28px 28px 28px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .better-luck{
   font-family: 'Open Sans';

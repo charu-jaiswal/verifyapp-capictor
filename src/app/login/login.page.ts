@@ -886,6 +886,7 @@ config.forEach(element => {
       }
     })
   }
+  hasCatalog
   googleLoginText
   registerUser() {
     debugger
@@ -908,6 +909,11 @@ config.forEach(element => {
 
 
     this.loginService.registerUser(data).subscribe(data => {
+      debugger
+
+      if(data.error=="1"){
+        this.alertService.presentAlert("", JSON.stringify(data.description));
+      }
       this.utils.newflow = false
 
       // this.registeredUsernewFlow()
@@ -926,6 +932,8 @@ config.forEach(element => {
 
         this.utils.openQuizModal()
       }else if(window.localStorage.getItem('scan_flow')=='4'){
+
+        debugger
 
         this.utils.openQuizModal()
 
@@ -956,8 +964,13 @@ config.forEach(element => {
       }
 
 
+      this.utils.showCatalogpage()
+
 
     }, err => {
+
+
+
       this.utils.newflow = false
 
 
@@ -965,7 +978,7 @@ config.forEach(element => {
 
       // this.navCtrl.pop()
 
-      this.alertService.presentAlert("", err.error.errors[0]);
+      // this.alertService.presentAlert("", JSON.stringify(err.description));
 
     })
 

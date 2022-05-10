@@ -158,12 +158,29 @@ ion-item {
   font-size: 14px;
   text-align: center;
   font-weight: 600;
-  padding: 15px 15px 15px;
-  margin-top: 10px;
-  // background: white;
+  padding: 8px 0px 15px;
+  margin-top: 60px;
+  background: white;
+  height: 34px;
+    // background: white;
   // margin-top: -25px;
   // height: 45px;
 }
+
+.lessdetail{
+  color: #4688C5;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  padding: 8px 0px 15px;
+  margin-top: 0px;
+  background: white;
+  height: 35px;
+}
+
+
+
+
 
 .participate {
   // background: #4688C5;
@@ -349,14 +366,19 @@ h2 {
 .myCard {
   position: relative;
   padding: 10px;
-  background: #fff;
-  background: #F4F4F4;
-  box-shadow: -3px -3px 12px #FFFFFF, 2px 2px 12px rgba(174, 174, 192, 0.3);
+  background: #FFFFFF;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 }
 
 
-
+.product-name{
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 36px;
+}
 
 
 
@@ -419,7 +441,7 @@ ion-slide.md.swiper-slide.swiper-slide-next {
 .myCard {
   flex: none;
   height: 100px;
-}
+  width: 100px;}
 
 .auth-logo {
   width: 100px !important;
@@ -430,6 +452,15 @@ ion-slide.md.swiper-slide.swiper-slide-next {
   top: -14px;
   left: -13px;
   // z-index: 9999;
+}
+.not-auth-logo{
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: cover;
+  position: absolute;
+  bottom: 43px;
+  top: -14px;
+  left: 8px;
 }
 
 .btn-share {
@@ -489,8 +520,8 @@ template {
 }
 
 .desc-new {
-  background: #F4F4F4;
-  box-shadow: -5px -5px 20px #FFFFFF, 5px 5px 20px rgba(174, 174, 192, 0.3);
+  background: #FFFFFF;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 }
 
@@ -551,4 +582,21 @@ template {
   background: #F4F4F4;
   box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.07), -4px -4px 13px #FFFFFF, 6px 6px 36px rgba(0, 0, 0, 0.06);
   border-radius: 12px;
+}
+
+.rating-star{
+  display: inline-flex;
+  width: 100%;
+}
+
+.rating-anchor{
+  margin-right: 5px;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #677278;
+  text-decoration: underline;
+  margin-left: 5px;
 }

@@ -140,6 +140,12 @@ export class VerifyitDashboardPage implements OnInit {
         window.localStorage.setItem('hasCatalog','0')
         // this.hasCatalog="0"
 
+      }else if(params.p == "2"){
+        window.localStorage.setItem('locationenabled','1');
+        window.localStorage.setItem('notification_enabled','1');
+
+        
+
       }else{
         this.popuptext = 'Increase your chances of winning the lucky prize by allowing notification.'
         window.localStorage.setItem('hasCatalog','1')

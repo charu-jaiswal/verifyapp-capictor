@@ -50,6 +50,10 @@ export class VerifyitProductCatalogPage {
   hasCatalog
   ngOnInit() {
 
+    if(window.localStorage.getItem('manualcatalog')=='1'){
+      this.openCatalog();
+    }
+
 
    
 
@@ -466,7 +470,8 @@ export class VerifyitProductCatalogPage {
 
     this.apiSvc.getQuestion(data).subscribe(
       (res: any) => {
-        if (res.message == 'Success') {
+
+        if (res.message == 'Success' && res.data.question.length>0) {
 
           let loginInfo = window.localStorage.getItem('name')
           // new flow coding

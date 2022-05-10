@@ -25,6 +25,7 @@ const routes: Routes = [
   entryComponents: [CreateNoticeComponent,QuizModalComponent],
   imports: [
     CommonModule,
+    // QuizModalComponent,
     FormsModule,
     ApplicationPageModule,
     IonicModule,
@@ -33,7 +34,7 @@ const routes: Routes = [
   providers: [
     // BarcodeScanner
   ],
-  declarations: [VerifyitProductCatalogPage,QuizModalComponent]
+  declarations: [VerifyitProductCatalogPage]
 })
 export class VerifyitProductCatalogPageModule { }
 

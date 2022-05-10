@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { AgoFilter } from './pipes/agofilter';
 import { CreateNoticeComponent } from './modals/create-notice/create-notice.component';
+import { QuizModalComponent } from './modals/quiz-modal/quiz-modal.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -12,7 +13,8 @@ import { CreateNoticeComponent } from './modals/create-notice/create-notice.comp
     ],
     declarations: [
         AgoFilter,
-        CreateNoticeComponent
+        CreateNoticeComponent,
+        QuizModalComponent
     ],
     entryComponents: [],
     exports: [

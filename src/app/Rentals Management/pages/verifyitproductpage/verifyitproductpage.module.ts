@@ -33,14 +33,16 @@ const routes: Routes = [
     FormsModule,
     ApplicationPageModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    // QuizModalComponent
+
   ],
   providers: [
     // BarcodeScanner
     TellUsifyouBuyitComponent,WarrantycardComponent,PanoimageComponent, CertificateModalComponent,Userrole5modalComponent,UserroleinfoModalComponent
   ],
   declarations: [PanoimageComponent,WarrantycardComponent,Verifyitproductpage,TellUsifyouBuyitComponent,CertificateModalComponent,Userrole5modalComponent,HideHeaderDirective,
-    UserroleinfoModalComponent,QuizModalComponent]
+    UserroleinfoModalComponent]
   //declarations: [VerifyitProductInfoPage,TellUsifyouBuyitComponent,WarrantycardComponent,PanoimageComponent, CertificateModalComponent,Userrole5modalComponent,UserroleinfoModalComponent,QuizModalComponent]
 })
 export class VerifyitProductPageModule { }

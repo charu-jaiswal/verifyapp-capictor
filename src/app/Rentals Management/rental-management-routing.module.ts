@@ -83,6 +83,8 @@ const routes: Routes = [
 
 
     { path: 'surprise-modal', loadChildren: '../Rentals Management/pages/surpisemodalpage/surpisemodalpage.module#surpiseModalPageModule' },
+
+    { path: 'game', loadChildren: '../Rentals Management/pages/verifygame/verifygame.module#verifygamePageModule' },
     
     
     // VerifyitOfferModule
